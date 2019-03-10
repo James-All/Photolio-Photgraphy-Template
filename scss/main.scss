@@ -1,5 +1,72 @@
-$primary-color:#333;
+@import 'config';
+@import 'menu';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
 
 body{
-    background:$primary-color;
+    background:$primary-bg;
+    color:$main-text;
+    font-family:'Roboto';
+    line-height:1.5;
+}
+
+.top-splash{
+    height:200px;
+    margin:20vh 0 1rem 0;
+
+    .container{
+        @include container;
+    }
+
+    #main-logo{
+        letter-spacing: .25em;
+        margin-bottom:1rem;
+    }
+
+    p{
+        margin-bottom:3rem;
+    }
+
+    a{
+        @include links;
+    }
+}
+
+#main-gallery{
+    min-height:calc(100vh - 60px);
+    width:95%;
+    margin:auto;
+    display:grid;
+    grid-gap:10px;
+    grid-template-columns: 1fr;
+    grid-template-rows:repeat(2, 250px 100px 150px 1fr 1fr 200px);
+
+    .gallery-item{
+        width:100%;
+
+        img{
+            height:100%;
+            width:100%;
+            object-fit:cover;
+        }
+    }
+}
+
+#main-footer{
+    height:60px;
+    margin-top:1rem;
+    padding:100px 0;
+    text-align:center;
+    background:$secondary-bg;
+
+    #social, 
+    span{
+        color:set-text-color($secondary-bg);
+    }
 }

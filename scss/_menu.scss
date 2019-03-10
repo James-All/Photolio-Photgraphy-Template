@@ -1,0 +1,79 @@
+
+.hamburger{
+    width:60px;
+    height:60px;
+    position:absolute;
+    right:10%;
+    top:5%;
+    padding:.8rem;
+    z-index:3;
+    cursor:pointer;
+
+    &-line{
+        height:20%;
+        width:100%;
+        margin-bottom:5px;
+        background:$main-text;
+        border-radius:5%;
+    }
+
+    //rotates into X shape on click
+    &.open{
+        transform: rotate(90deg);
+        @include easeIn;
+        //target first line
+        .hamburger-line:nth-child(1){
+            transform: rotate(45deg);
+            background:set-text-color(#000);
+            @include easeIn;
+        }
+        //target second line
+        .hamburger-line:nth-child(2){
+            transform:rotate(-45deg) translate(10px, -10px);
+            background:set-text-color(#000);   
+            @include easeIn;      
+        }
+        //target third line
+        .hamburger-line:nth-child(3){
+            display:none;
+        }
+    }
+    
+}
+
+.slide-menu{
+    width:100%;
+    height:100vh;
+    background:#000;
+    position:absolute;
+    top:0;
+    transform: translate3d(0, -100%, 0);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    opacity:.9;
+
+        #menu-items{
+            list-style: none;
+
+            li{
+                padding:2rem 0;
+                text-align: center;
+
+                a{
+                    color:set-text-color(#000);
+                    text-decoration:none;
+                    font-size:2rem;
+                }
+            }
+        }
+
+    //on hamburger click, class adds to .slide-menu
+    &.slide-down{
+        transform: translate3d(0, 0, 0);
+        @include easeIn;
+    }
+    
+    
+}
+

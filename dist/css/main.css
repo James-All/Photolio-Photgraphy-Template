@@ -1,2 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+.hamburger {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 10%;
+  top: 5%;
+  padding: .8rem;
+  z-index: 3;
+  cursor: pointer; }
+  .hamburger-line {
+    height: 20%;
+    width: 100%;
+    margin-bottom: 5px;
+    background: #333;
+    border-radius: 5%; }
+  .hamburger.open {
+    transform: rotate(90deg);
+    transition: all 400ms ease-in; }
+    .hamburger.open .hamburger-line:nth-child(1) {
+      transform: rotate(45deg);
+      background: #fff;
+      transition: all 400ms ease-in; }
+    .hamburger.open .hamburger-line:nth-child(2) {
+      transform: rotate(-45deg) translate(10px, -10px);
+      background: #fff;
+      transition: all 400ms ease-in; }
+    .hamburger.open .hamburger-line:nth-child(3) {
+      display: none; }
+
+.slide-menu {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  position: absolute;
+  top: 0;
+  transform: translate3d(0, -100%, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .9; }
+  .slide-menu #menu-items {
+    list-style: none; }
+    .slide-menu #menu-items li {
+      padding: 2rem 0;
+      text-align: center; }
+      .slide-menu #menu-items li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 2rem; }
+  .slide-menu.slide-down {
+    transform: translate3d(0, 0, 0);
+    transition: all 400ms ease-in; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
 body {
-  background: #333; }
+  background: #fff;
+  color: #333;
+  font-family: 'Roboto';
+  line-height: 1.5; }
+
+.top-splash {
+  height: 200px;
+  margin: 20vh 0 1rem 0; }
+  .top-splash .container {
+    width: 80%;
+    margin: auto;
+    text-align: center; }
+  .top-splash #main-logo {
+    letter-spacing: .25em;
+    margin-bottom: 1rem; }
+  .top-splash p {
+    margin-bottom: 3rem; }
+  .top-splash a {
+    padding: 1rem;
+    background: #222;
+    color: #fff;
+    text-decoration: none; }
+
+#main-gallery {
+  min-height: calc(100vh - 60px);
+  width: 95%;
+  margin: auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 250px 100px 150px 1fr 1fr 200px); }
+  #main-gallery .gallery-item {
+    width: 100%; }
+    #main-gallery .gallery-item img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover; }
+
+#main-footer {
+  height: 60px;
+  margin-top: 1rem;
+  padding: 100px 0;
+  text-align: center;
+  background: #c6c6c4; }
+  #main-footer #social,
+  #main-footer span {
+    color: #000; }

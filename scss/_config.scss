@@ -1,0 +1,39 @@
+//variables
+$primary-bg:#fff;
+$secondary-bg:#c6c6c4;
+$dark-bg:#222;
+
+$main-text:#333;
+
+
+
+//mixins
+
+@mixin container{
+    width:80%;
+    margin:auto;
+    text-align: center;
+}
+
+@mixin links{
+    padding:1rem;
+    background:$dark-bg;
+    color:set-text-color($dark-bg);
+    text-decoration: none;
+}
+
+@mixin easeIn{
+    transition:all 400ms ease-in;
+}
+
+
+//functions
+
+
+@function set-text-color($bg-color){
+    @if lightness($bg-color) < 50{
+        @return #fff;
+    }@else{
+        @return #000;
+    }
+}
