@@ -4,6 +4,7 @@ $secondary-bg:#c6c6c4;
 $dark-bg:#222;
 
 $main-text:#333;
+$hover-color:#1034A6;
 
 
 
@@ -35,5 +36,18 @@ $main-text:#333;
         @return #fff;
     }@else{
         @return #000;
+    }
+}
+
+//media query mixins
+
+@mixin mediaMd{
+    @media screen and (min-width:600px){
+        @content;
+    }
+}
+@mixin mediaLg{
+    @media screen and (min-width:900px){
+        @content;
     }
 }

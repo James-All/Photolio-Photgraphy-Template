@@ -1,0 +1,15 @@
+
+
+@include mediaMd{
+    #main-gallery{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows:250px 100px 150px 1fr 1fr 200px;
+        }
+}
+
+@include mediaLg{
+    #main-gallery{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows:100px 1fr 200px;
+        }
+}

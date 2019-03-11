@@ -17,6 +17,19 @@
         border-radius:5%;
     }
 
+    &:hover{
+        .hamburger-line{
+            background:$hover-color;
+        }
+    }
+
+    &.spin{
+        animation:spin .5s;
+    }
+    &.spin-reverse{
+        animation:spin-reverse .5s;
+    }
+
     //rotates into X shape on click
     &.open{
         transform: rotate(90deg);
@@ -37,6 +50,12 @@
         .hamburger-line:nth-child(3){
             display:none;
         }
+
+        &:hover{
+            .hamburger-line{
+                background:$hover-color;
+            }
+        }
     }
     
 }
@@ -55,6 +74,7 @@
 
         #menu-items{
             list-style: none;
+            transform:translate3d(100%, 0, 0);
 
             li{
                 padding:2rem 0;
@@ -64,7 +84,15 @@
                     color:set-text-color(#000);
                     text-decoration:none;
                     font-size:2rem;
+
+                    &:hover{
+                        color:$hover-color;
+                    }
                 }
+            }
+
+            &.nav-slide{
+                transform:translate3d(0, 0, 0); 
             }
         }
 
@@ -73,7 +101,41 @@
         transform: translate3d(0, 0, 0);
         @include easeIn;
     }
+
+
+    //our nav items transition
+
+    .nav-item{
+        transform:translate3d(400px, 0, 0);
+        visibility:hidden;
+        @include easeIn;
+
+        &.nav-item-slide{
+            transform:translate3d(0, 0, 0);
+            visibility:visible;
+            
+        }
+    }
     
     
+}
+
+//sass for loop for transition delay
+
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}){
+        transition-delay:$x  * 0.1s;
+    }
+}
+
+
+
+@-webkit-keyframes spin {
+    from{transform: rotate(0deg);}
+    to{transform:rotate(180deg);}
+}
+@-webkit-keyframes spin-reverse {
+    from{transform: rotate(180deg);}
+    to{transform:rotate(0deg);}
 }
 
